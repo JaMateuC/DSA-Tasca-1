@@ -168,7 +168,8 @@ public class Calculator extends AppCompatActivity {
             num1ET.setText(num1R);
             num2ET.setText(num2R);
             resultTV.setText(resultR);
-            this.position = resultAct.getInt("position");
+            int p = Integer.parseInt(resultAct.getString("position"));
+            position = p - 1;
             this.modificar = true;
 
             ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.oper_array, android.R.layout.simple_spinner_item);

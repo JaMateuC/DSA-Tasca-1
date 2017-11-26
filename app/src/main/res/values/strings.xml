@@ -13,8 +13,8 @@
     <string name="num2_hint">num2</string>
     <string name="title_activity_historial">Historial</string>
     <string name="btn_esborrar">Esborrar historial</string>
-    <string name="title_activity_borrar">Borrar Historial</string>
-    <string name="title_activity_modificar">Modificar Operacion</string>
+    <string name="title_activity_borrar">Esborrar Historial</string>
+    <string name="title_activity_modificar">Modificar Operacio</string>
     <string name="button_si">Si</string>
     <string name="button_no">No</string>
     <string name="button_modificar">Modificar</string>

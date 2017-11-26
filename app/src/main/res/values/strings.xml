@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Calculator</string>
+    <string name="button_equal">=</string>
+    <string name="button_C">C</string>
+    <string name="button_historial">Historial</string>
+    <string-array name="oper_array">
+        <item>+</item>
+        <item>-</item>
+        <item>x</item>
+        <item>/</item>
+    </string-array>
+    <string name="num1_hint">num1</string>
+    <string name="num2_hint">num2</string>
+    <string name="title_activity_historial">Historial</string>
+    <string name="btn_esborrar">Esborrar historial</string>
+    <string name="title_activity_borrar">Borrar Historial</string>
+    <string name="title_activity_modificar">Modificar Operacion</string>
+    <string name="button_si">Si</string>
+    <string name="button_no">No</string>
+    <string name="button_modificar">Modificar</string>
+    <string name="button_esborrar">Esborrar</string>
+
+</resources>

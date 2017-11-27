@@ -29,6 +29,8 @@ public class Calculator extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator);
+
+        //creacion del spinner para escoger el tipo de operacion
         operSpinner = findViewById(R.id.oper_spinner);
         adapter = ArrayAdapter.createFromResource(this,R.array.oper_array,android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -54,6 +56,9 @@ public class Calculator extends AppCompatActivity {
 
     }
 
+    /*
+    funcion para ejecutar la operacon deseada
+     */
     public void addButtonEqualListener(){
 
         Button buttonEqual = findViewById(R.id.buttonEqual);
@@ -97,6 +102,7 @@ public class Calculator extends AppCompatActivity {
                             resultString.setText(resultTXT);
 
                             lastOper = num1Val + " " + operString + " " + num2Val + " = " + resultTXT;
+                            //if para saber si es una operacion nueva o que se tiene que modificar
                             if(modificar){
                                 operationList.set(position, lastOper);
                                 modificar = false;
@@ -118,6 +124,10 @@ public class Calculator extends AppCompatActivity {
 
     }
 
+
+    /*
+    Boton que borra lo campos de la pagina principal
+     */
     public void addButtonCListener(){
 
         Button buttonEqual = findViewById(R.id.buttonC);
@@ -138,6 +148,9 @@ public class Calculator extends AppCompatActivity {
 
     }
 
+    /*
+    Boton que abre la actividad de Historial
+     */
     public void addButtonHistorialListener(){
 
         Button buttonHistorial = findViewById(R.id.buttonHistorial);
@@ -145,7 +158,7 @@ public class Calculator extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent historialIntent = new Intent(v.getContext(),HistorialActivity.class);
-                historialIntent.putExtra("operationList", operationList);
+                historialIntent.putExtra("operationList", operationList); //añade la lista de operaciones que se han hecho de momento
                 startActivityForResult(historialIntent,1);
 
             }
@@ -153,8 +166,15 @@ public class Calculator extends AppCompatActivity {
 
     }
 
+    /*
+    Funciones que se ejecutan cuando se vuelve a esta actividad
+     */
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);
+
+        /*
+        Codigo que devulve cuando elk usuario quiere modificar una operacion del historial
+         */
         if((requestCode == 1) && (resultCode == Activity.RESULT_OK)){
             Bundle resultAct = data.getExtras();
             String num1R = resultAct.getString("num1");
@@ -177,7 +197,11 @@ public class Calculator extends AppCompatActivity {
             operatorSpin.setAdapter(adapter);
             int spinnerPosition = adapter.getPosition(operator);
             operatorSpin.setSelection(spinnerPosition);
-        }else if((requestCode == 1) && (resultCode == 2)){
+        }
+        /*
+        If que se devulve cuando se vulve del historial pero no se quiere modificar ningunna operacion
+         */
+        else if((requestCode == 1) && (resultCode == 2)){
 
             Bundle resultAct = data.getExtras();
             ArrayList<String> operationListReturn = resultAct.getStringArrayList("opertaionList");

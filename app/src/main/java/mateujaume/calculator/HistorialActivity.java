@@ -55,6 +55,7 @@ public class HistorialActivity extends AppCompatActivity {
 
     }
 
+    //boton para volver a la pagina principal
     public void addButtonExitListener(){
 
         Button buttonEqual = findViewById(R.id.buttonExit);
@@ -82,6 +83,7 @@ public class HistorialActivity extends AppCompatActivity {
 
     }
 
+    //Crea la lista para añadir los elementos en el ListView
     public void listCreator(){
 
         int count = 1;
@@ -96,6 +98,7 @@ public class HistorialActivity extends AppCompatActivity {
 
     }
 
+    //funcion para ejecutar la actividad de modificar cuando se pulse en una operacion del historial
     public void itemClick(ListView operList){
 
         operList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -113,9 +116,15 @@ public class HistorialActivity extends AppCompatActivity {
 
     }
 
+    /*
+    Funciones que se ejecutan cuando se vuelve a esta actividad
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        /*
+        if para devolver un valor a lactividad princepal para modificarla
+         */
         if (requestCode == 1 && resultCode == RESULT_OK) {
 
             Bundle modif = data.getExtras();
@@ -136,7 +145,11 @@ public class HistorialActivity extends AppCompatActivity {
             intres.putExtra("operator", operator);
             setResult(RESULT_OK, intres);
             finish();
-        }else if(requestCode == 1 && resultCode == 2){
+        }
+        /*
+        If para eliminar una operacion en concreto
+         */
+        else if(requestCode == 1 && resultCode == 2){
 
             Bundle modif = data.getExtras();
             String operation = modif.getString("operationStr");
@@ -145,7 +158,11 @@ public class HistorialActivity extends AppCompatActivity {
             listCreator();
             adapter.notifyDataSetChanged();
 
-        }else if(requestCode == 2 && resultCode == 1){
+        }
+        /*
+        If para eliminar el historial entero
+         */
+        else if(requestCode == 2 && resultCode == 1){
 
             listOperationInit.clear();
             listOperation.clear();

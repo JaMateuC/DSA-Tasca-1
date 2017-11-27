@@ -33,6 +33,9 @@ public class ModificarActivity extends AppCompatActivity {
 
     }
 
+    /*
+    Boton que devuelve a la operacion prrincipal la operacion a modificar
+     */
     public void addButtonModificarListener() {
         Button buttonModificar = findViewById(R.id.buttonModificar);
         buttonModificar.setOnClickListener(new View.OnClickListener() {
@@ -46,6 +49,9 @@ public class ModificarActivity extends AppCompatActivity {
         });
     }
 
+    /*
+    Boton qque devuelve la operacion al historial para poder ser eliminada
+     */
     public void addButtonEsborrarListener() {
         Button buttonEsborrar = findViewById(R.id.buttonEsborrar);
         buttonEsborrar.setOnClickListener(new View.OnClickListener() {

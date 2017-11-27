@@ -23,6 +23,9 @@ public class BorrarActivity extends AppCompatActivity {
 
     }
 
+    /*
+    Boton qque devuleve un result code para eliminar el historial entero a la actividad de historial
+     */
     public void addButtonSiListener() {
         Button buttonSi = findViewById(R.id.buttonSi);
         buttonSi.setOnClickListener(new View.OnClickListener() {
@@ -33,6 +36,9 @@ public class BorrarActivity extends AppCompatActivity {
         });
     }
 
+    /*
+    Boton qque cierra esta actividad si enviar cambios a la actividad historial
+     */
     public void addButtonNoListener() {
         Button buttonNo = findViewById(R.id.buttonNo);
         buttonNo.setOnClickListener(new View.OnClickListener() {
